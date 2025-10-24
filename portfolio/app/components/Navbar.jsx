@@ -25,7 +25,12 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   return (
     <>
       <div className="fixed top-0 right-0 -z-10 translate-y-y[-80%] dark:hidden">
-        <Image src={assets.header_bg_color} alt="" className="w-full" />
+        <Image
+          src={assets.header_bg_color}
+          alt="Header background"
+          className="w-full"
+          priority={true} // Added priority for LCP image
+        />
       </div>
       <nav
         className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
@@ -37,8 +42,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         <a href="#top">
           <Image
             src={isDarkMode ? assets.logo_dark : assets.logo}
-            alt=""
-            className="w-28  cursor-pointer mr-14"
+            alt="Logo"
+            className="w-28 cursor-pointer mr-14"
+            priority={true} // Added priority for logo as it's also important for LCP
           />
         </a>
 
@@ -77,10 +83,15 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         </ul>
 
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsDarkMode((prev) => !prev)}>
+          <button
+            onClick={() => setIsDarkMode((prev) => !prev)}
+            aria-label={
+              isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+          >
             <Image
               src={isDarkMode ? assets.sun_icon : assets.moon_icon}
-              alt="Menu Icon"
+              alt={isDarkMode ? "Sun icon" : "Moon icon"}
               className="w-6"
             />
           </button>
@@ -91,20 +102,24 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             Contact{" "}
             <Image
               src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon}
-              alt="Arrow Icon"
+              alt="Arrow icon"
               className="w-3"
             />{" "}
           </a>
-          <button className="block md:hidden ml-3 " onClick={openMenu}>
+          <button
+            className="block md:hidden ml-3"
+            onClick={openMenu}
+            aria-label="Open menu"
+          >
             <Image
               src={isDarkMode ? assets.menu_white : assets.menu_black}
-              alt="Menu Icon"
+              alt="Menu icon"
               className="w-6"
             />
           </button>
         </div>
 
-        {/*-------- moblie menu----------*/}
+        {/*-------- mobile menu----------*/}
 
         <ul
           ref={sideMenuRef}
@@ -113,32 +128,32 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
           <div className="absolute right-6 top-6" onClick={closeMenu}>
             <Image
               src={isDarkMode ? assets.close_white : assets.close_black}
-              alt="Close Icon"
+              alt="Close menu"
               className="w-5 cursor-pointer"
             />
           </div>
           <li>
-            <a className="font-Ovo onClick={closeMenu}" href="#top">
+            <a className="font-Ovo" href="#top" onClick={closeMenu}>
               Home
             </a>
           </li>
           <li>
-            <a className="font-Ovo onClick={closeMenu}" href="#about">
+            <a className="font-Ovo" href="#about" onClick={closeMenu}>
               About me
             </a>
           </li>
           <li>
-            <a className="font-Ovo onClick={closeMenu}" href="#work">
+            <a className="font-Ovo" href="#work" onClick={closeMenu}>
               My Work
             </a>
           </li>
           <li>
-            <a className="font-Ovo onClick={closeMenu}" href="#contact">
+            <a className="font-Ovo" href="#contact" onClick={closeMenu}>
               Contact
             </a>
           </li>
           <li>
-            <a className="font-Ovo onClick={closeMenu}" href="#services">
+            <a className="font-Ovo" href="#services" onClick={closeMenu}>
               Service
             </a>
           </li>

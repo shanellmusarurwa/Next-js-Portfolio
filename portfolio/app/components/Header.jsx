@@ -12,10 +12,11 @@ const Header = () => {
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
       >
         <Image
-          src="/Mitchelle.jpg"
+          src="/mitchelle.jpg"
           alt="Header Image"
-          width={128} // 32 * 4 = 128 (since w-32 = 128px)
-          height={128}
+          width={90}
+          height={90}
+          priority={true} // ← ADD THIS LINE
           className="rounded-full w-32"
         />
       </motion.div>

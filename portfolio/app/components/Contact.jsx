@@ -80,6 +80,7 @@ const Contact = () => {
             placeholder="Your Name"
             className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90 "
             name="name"
+            autoComplete="name"
           />
           <motion.input
             initial={{ x: 50, opacity: 0 }}
@@ -90,6 +91,7 @@ const Contact = () => {
             placeholder="Your Email"
             className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
             name="email"
+            autoComplete="email"
           />
         </div>
         <motion.textarea
@@ -101,6 +103,7 @@ const Contact = () => {
           required
           className="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
           name="message"
+          autoComplete="off"
         ></motion.textarea>
 
         <motion.button

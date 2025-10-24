@@ -44,8 +44,8 @@ const About = ({ isDarkMode }) => {
           <Image
             src="/mitchelle.jpg"
             alt="user"
-            width={300}
-            height={300}
+            width={200}
+            height={200}
             className="w-full rounded-4xl"
           />
         </motion.div>
